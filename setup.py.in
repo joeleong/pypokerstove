@@ -1,0 +1,11 @@
+from setuptools import setup
+
+setup(
+    name='${PROJECT_NAME}',
+    version='${PROJECT_VERSION}',
+    install_requires=[
+        'pyparsing',
+    ],
+    packages=['${PROJECT_NAME}'],
+    package_data={'${PROJECT_NAME}': ['_${PROJECT_NAME}.so']},
+)
