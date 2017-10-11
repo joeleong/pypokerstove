@@ -1,0 +1,12 @@
+diff --git a/pokerstove/src/lib/pokerstove/peval/Holdem.h b/pokerstove/src/lib/pokerstove/peval/Holdem.h
+index 0fc26a7..51070dc 100644
+--- a/pokerstove/src/lib/pokerstove/peval/Holdem.h
++++ b/pokerstove/src/lib/pokerstove/peval/Holdem.h
+@@ -13,7 +13,6 @@ const unsigned int PREFLOP = 0;
+ const unsigned int FLOP = 1;
+ const unsigned int TURN = 2;
+ const unsigned int RIVER = 3;
+-const unsigned int BOARD_SIZE = 5;
+ const unsigned int NUM_FLOP_CARDS = 3;
+ const unsigned int NUM_TURN_CARDS = 4;
+ const unsigned int NUM_RIVER_CARDS = 5;
