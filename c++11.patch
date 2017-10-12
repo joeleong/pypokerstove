@@ -1,0 +1,39 @@
+diff --git a/pokerstove/src/lib/pokerstove/penum/CMakeLists.txt b/src/lib/pokerstove/penum/CMakeLists.txt
+index 022ffdf..a79f9a3 100644
+--- a/pokerstove/src/lib/pokerstove/penum/CMakeLists.txt
++++ b/pokerstove/src/lib/pokerstove/penum/CMakeLists.txt
+@@ -15,6 +15,8 @@ foreach(source_file ${test_sources})
+ endforeach()
+ 
+ # penum library
++add_definitions ("-std=c++11")
++
+ add_library(penum ${lib_sources})
+ 
+ add_test(TestPenum ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/penum_tests)
+diff --git a/pokerstove/src/lib/pokerstove/peval/CMakeLists.txt b/src/lib/pokerstove/peval/CMakeLists.txt
+index ea7c782..6b8ce82 100644
+--- a/pokerstove/src/lib/pokerstove/peval/CMakeLists.txt
++++ b/pokerstove/src/lib/pokerstove/peval/CMakeLists.txt
+@@ -13,6 +13,8 @@ foreach(source_file ${test_sources})
+ endforeach()
+ 
+ # peval library
++add_definitions ("-std=c++11")
++
+ add_library(peval ${lib_sources})
+ 
+ add_test(TestPeval ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/peval_tests)
+diff --git a/pokerstove/src/lib/pokerstove/util/CMakeLists.txt b/src/lib/pokerstove/util/CMakeLists.txt
+index 4a3723e..93ddf0a 100644
+--- a/pokerstove/src/lib/pokerstove/util/CMakeLists.txt
++++ b/pokerstove/src/lib/pokerstove/util/CMakeLists.txt
+@@ -1,6 +1,8 @@
+ cmake_minimum_required(VERSION 2.8)
+ 
+ set (CMAKE_CXX_FLAGS "-Wno-deprecated-register")
++add_definitions ("-std=c++11")
++
+ 
+ # build the test 
+ file(GLOB test_sources *.test.cpp)
