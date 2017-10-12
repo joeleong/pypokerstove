@@ -29,9 +29,15 @@ link_directories(pokerstove/build/lib/pokerstove/peval)
 find_library(libpeval REQUIRED)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_NAME})
 set(CMAKE_SWIG_OUTDIR ${PROJECT_NAME})
-swig_add_library(${PROJECT_NAME}
-                 LANGUAGE python
-                 SOURCES ${PROJECT_NAME}.i)
+
+
+if (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
+  swig_add_library(${PROJECT_NAME}
+                   LANGUAGE python
+                   SOURCES ${PROJECT_NAME}.i)
+else (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
+  swig_add_module(${PROJECT_NAME} PYTHON ${PROJECT_NAME}.i)
+endif (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
 swig_link_libraries(${PROJECT_NAME} peval ${PYTHON_LIBRARIES} ${Boost_LIBRARIES})
 
 # install bindings
