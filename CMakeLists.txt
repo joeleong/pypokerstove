@@ -16,7 +16,10 @@ set(CMAKE_SWIG_FLAGS "")
 find_package(PythonLibs)
 include_directories(${PYTHON_INCLUDE_PATH})
 
+include_directories(pokerstove/src/lib)
 include_directories(pokerstove/src/lib/pokerstove/peval)
+include_directories(pokerstove/src/lib/pokerstove/penum)
+include_directories(pokerstove/src/lib/pokerstove/util)
 
 # SET(CMAKE_SWIG_FLAGS "-fPIC")
 # add_definitions ("-std=c++0x")
@@ -26,7 +29,11 @@ set_source_files_properties(${swig_generated_file_filename}
                             PROPERTIES COMPILE_FLAGS "-fPIC")
 # set(CMAKE_SWIG_OUTDIR ${PROJECT_NAME})
 link_directories(pokerstove/build/lib/pokerstove/peval)
+link_directories(pokerstove/build/lib/pokerstove/penum)
+link_directories(pokerstove/build/lib/pokerstove/util)
 find_library(libpeval REQUIRED)
+find_library(libpenum REQUIRED)
+find_library(util REQUIRED)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_NAME})
 set(CMAKE_SWIG_OUTDIR ${PROJECT_NAME})
 
@@ -38,7 +45,7 @@ if (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
 else (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
   swig_add_module(${PROJECT_NAME} PYTHON ${PROJECT_NAME}.i)
 endif (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.8)
-swig_link_libraries(${PROJECT_NAME} peval ${PYTHON_LIBRARIES} ${Boost_LIBRARIES})
+swig_link_libraries(${PROJECT_NAME} peval penum util ${PYTHON_LIBRARIES} ${Boost_LIBRARIES})
 
 # install bindings
 find_program(PYTHON "python")
