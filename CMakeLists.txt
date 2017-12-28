@@ -22,7 +22,7 @@ include_directories(pokerstove/src/lib/pokerstove/penum)
 include_directories(pokerstove/src/lib/pokerstove/util)
 
 # SET(CMAKE_SWIG_FLAGS "-fPIC")
-# add_definitions ("-std=c++0x")
+add_definitions ("-std=c++11")
 
 set_source_files_properties(${PROJECT_NAME}.i PROPERTIES CPLUSPLUS ON)
 set_source_files_properties(${swig_generated_file_filename}

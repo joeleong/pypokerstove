@@ -24,7 +24,7 @@ RUN echo "source $HOME/.local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 ENV EDITOR vim
 
 # Build
-RUN git clone --recursive http://gitub.com/joeleong/pypokerstove
+RUN git clone --recursive -b test http://github.com/joeleong/pypokerstove
 WORKDIR /pypokerstove
 RUN git apply patches/*.patch
 RUN mkdir pokerstove/build
